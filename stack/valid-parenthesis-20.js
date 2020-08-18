@@ -4,7 +4,7 @@
  * @return {boolean}
  */
 
-var isValid = function(s) {
+const isValid = (s) => {
     if(s.length === 0){
         return true;
     }
@@ -13,20 +13,15 @@ var isValid = function(s) {
     }
     var obj = {'(':')','{':'}','[':']'};
     var arr = [];
-    var temp;
     for(var i=0; i<s.length; i++){
         if(s[i] === '(' || s[i] ==='{' || s[i] === '['){
             arr.push(s[i]);
         }else if(s[i] === ')' || s[i] ==='}' || s[i] ===']'){
-            temp = arr.pop();
+            let temp = arr.pop();
             if(obj[temp] !== s[i]){
                 return false;
             }
         }
     }
-    if(arr.length === 0){
-        return true;
-    }else{
-        return false;
-    }
+    return !arr.length;
 };

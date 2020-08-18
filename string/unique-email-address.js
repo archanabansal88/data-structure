@@ -3,7 +3,7 @@
  * @param {string[]} emails
  * @return {number}
  */
-let numUniqueEmails = function(emails) {
+const numUniqueEmails = (emails) => {
     let set = new Set();
     for(let i=0; i<emails.length; i++){
         let temp = emails[i].split('@');
