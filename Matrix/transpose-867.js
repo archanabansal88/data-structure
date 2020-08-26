@@ -8,9 +8,9 @@ var transpose = function(A) {
     const row = A.length;
     const column = A[0].length;
 
-    for(let i=0; i<A[0].length; i++){
+    for(let i=0; i<column; i++){
         matrix.push([]);
-        for(let j=0; j<A.length; j++){
+        for(let j=0; j<row; j++){
            matrix[i].push(0);
         }
     }
