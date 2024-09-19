@@ -3,20 +3,20 @@
  * @param {number[]} A
  * @return {number[]}
  */
-var sortedSquares = function(A) {
-    let arr = [];
-    let i = 0;
-    let j = A.length-1;
-    while(i <= j){
-        let start = Math.pow(A[i],2);
-        let end = Math.pow(A[j],2);
-        if(start < end){
-            arr.unshift(end);
-            j--;
-        }else{
-            arr.unshift(start);
-            i++;
-        }        
+var sortedSquares = function (arr) {
+  let sortedArr = [];
+  let left = 0;
+  let right = A.length - 1;
+  while (left <= right) {
+    let start = Math.abs(arr[left]);
+    let end = Math.abs(arr[right]);
+    if (start < end) {
+      arr.unshift(end * end);
+      right--;
+    } else {
+      arr.unshift(start * start);
+      left++;
     }
-    return arr;   
+  }
+  return sortedArr;
 };
