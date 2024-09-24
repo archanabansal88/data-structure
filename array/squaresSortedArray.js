@@ -6,15 +6,15 @@
 var sortedSquares = function (arr) {
   let sortedArr = [];
   let left = 0;
-  let right = A.length - 1;
+  let right = arr.length - 1;
   while (left <= right) {
     let start = Math.abs(arr[left]);
     let end = Math.abs(arr[right]);
     if (start < end) {
-      arr.unshift(end * end);
+      sortedArr.unshift(end * end);
       right--;
     } else {
-      arr.unshift(start * start);
+      sortedArr.unshift(start * start);
       left++;
     }
   }
