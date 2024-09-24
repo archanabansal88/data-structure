@@ -4,18 +4,21 @@
  * @return {number}
  */
 const firstUniqChar = (s) => {
-    let arr = new Array(26).fill(0);
-    for(let i=0; i<s.length; i++){
-        let j = s.charCodeAt(i) - 97;
-        arr[j] = arr[j] +1;
+  let obj = {};
+  for (let i = 0; i < s.length; i++) {
+    if (!obj[s[i]]) {
+      obj[s[i]] = 1;
+    } else {
+      obj[s[i]] += 1;
     }
-    for(let i=0; i<s.length; i++){
-        let j = s.charCodeAt(i) - 97;
-        if(arr[j] === 1){
-            return i;
-        }
+  }
+
+  for (let i = 0; i < s.length; i++) {
+    if (obj[s[i]] === 1) {
+      return i;
     }
-    return -1;  
+  }
+  return -1;
 };
 
 firstUniqChar("loveleetcode");
