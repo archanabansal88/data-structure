@@ -17,3 +17,22 @@ var isPalindrome = function (s) {
   }
   return true;
 };
+
+// 2nd way
+var isPalindrome = function (s) {
+  const str = s.split("");
+  const firstLetter = str.shift();
+  const lastLetter = str.pop();
+  if (firstLetter !== lastLetter) {
+    return false;
+  }
+  if (str.length < 2) {
+    return true;
+  }
+  return isPalindrome(str.join(""));
+};
+
+// 3rd way
+var isPalindrome = function (s) {
+  return s === s.split("").reverse().join("");
+};

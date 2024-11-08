@@ -5,23 +5,28 @@
  * @return {boolean}
  */
 var isAnagram = function (s, t) {
-  if (s.length !== t.length) return false;
+  const str1 = s.split(" ").join("").toLowerCase();
+  const str2 = t.split(" ").join("").toLowerCase();
+  if (str1.length !== str2.length) return false;
   let obj = {};
 
-  for (let i = 0; i < s.length; i++) {
-    if (!obj[s[i]]) {
-      obj[s[i]] = 1;
+  for (let i = 0; i < str1.length; i++) {
+    if (!obj[str1[i]]) {
+      obj[str1[i]] = 1;
     } else {
-      obj[s[i]] += 1;
+      obj[str1[i]] += 1;
     }
   }
 
-  for (let i = 0; i < t.length; i++) {
-    if (obj[t[i]]) {
-      obj[t[i]] -= 1;
+  for (let i = 0; i < str2.length; i++) {
+    if (obj[str2[i]]) {
+      obj[str2[i]] -= 1;
     } else {
       return false;
     }
   }
   return true;
 };
+
+console.log(isAnagram("hello world", "world     h  ello"));
+console.log(isAnagram("hello", "world"));
